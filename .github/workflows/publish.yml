@@ -1,32 +1,32 @@
-name: Docker Build and Push
+name: Docker Build and Push  # Nombre del workflow en GitHub Actions
 
 on:
   push:
     branches:
-      - main  
+      - main  # Se ejecuta cuando hay un push a la rama 'main'
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
-    environment: prod
+    runs-on: ubuntu-latest  # Se ejecuta en un runner con Ubuntu
+    environment: prod  # Define el entorno de ejecución como 'prod'
 
     steps:
       - name: Checkout del código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Obtiene el código del repositorio
 
       - name: Configurar Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v3  # Habilita Docker Buildx para una construcción optimizada
 
       - name: Iniciar sesión en DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}  # Usa el nombre de usuario almacenado en GitHub Secrets
+          password: ${{ secrets.DOCKER_PASSWORD }}  # Usa la contraseña o token almacenado en GitHub Secrets
 
       - name: Construir y subir la imagen a DockerHub
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./Dockerfile 
-          push: true
-          tags: kira0826/taller:latest  
+          context: .  # Usa el directorio actual como contexto de construcción
+          file: ./Dockerfile  # Especifica el Dockerfile a usar
+          push: true  # Indica que la imagen debe ser subida a DockerHub
+          tags: kira0826/taller:latest  # Etiqueta de la imagen en DockerHub

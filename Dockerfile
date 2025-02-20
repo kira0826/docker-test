@@ -1,12 +1,18 @@
-FROM node:18-alpine
+# Usa una imagen ligera de Node.js 18
+FROM node:18-alpine  
 
-WORKDIR /app
+# Define el directorio de trabajo
+WORKDIR /app  
 
-COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+# Copia archivos de dependencias e instala paquetes
+COPY package.json package-lock.json ./  
+RUN npm install --frozen-lockfile  
 
-COPY . .
+# Copia el resto del código
+COPY . .  
 
-EXPOSE 3000
+# Expone el puerto de la aplicación
+EXPOSE 3000  
 
-CMD ["npm","run",    "dev"]
+# Ejecuta la app en modo desarrollo
+CMD ["npm", "run", "dev"]  
