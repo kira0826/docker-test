@@ -1,6 +1,27 @@
 Kevin Steven Nieto Curaca
 
 Primero construí el dockerfile teniendo en cuenta el entorno que se definía en el readme.  Busqué el scrip  configurado para correr la app tal que la ejecucución es con `npm run dev` 
+```
+# Usa una imagen ligera de Node.js 18
+FROM node:18-alpine  
+
+# Define el directorio de trabajo
+WORKDIR /app  
+
+# Copia archivos de dependencias e instala paquetes
+COPY package.json package-lock.json ./  
+RUN npm install --frozen-lockfile  
+
+# Copia el resto del código
+COPY . .  
+
+# Expone el puerto de la aplicación
+EXPOSE 3000  
+
+# Ejecuta la app en modo desarrollo
+CMD ["npm", "run", "dev"]  
+
+```
 
 Para la parte del acceso generé un acces token con permisos de Wirite and Read para usarlo como password en las secrets, tal que: 
 
