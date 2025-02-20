@@ -4,9 +4,9 @@ Primero construí el dockerfile teniendo en cuenta el entorno que se definía en
 
 Para la parte del acceso generé un acces token con permisos de Wirite and Read para usarlo como password en las secrets, tal que: 
 
-![image.png](attachment:c4e90620-8179-4c75-82ef-cdf04652f5be:image.png)
+![image](https://github.com/user-attachments/assets/f16da38b-9f9f-418b-8ed4-9620169bafb0)
 
-![image.png](attachment:11c89ed7-4fbf-49e9-997e-06cf4accce3c:image.png)
+![image](https://github.com/user-attachments/assets/182d8a7b-bc04-47cd-b28f-1577e9c7e222)
 
 Con ello ya podía configurar el workflow tal que guiandome con lo que hice en el taller de microservicios contruí esto:
 
@@ -49,8 +49,10 @@ Establecí el ambiente que creé con `environment` , y luego ejecute dando como 
 
  
 
-![image.png](attachment:bab62380-6274-44b6-92a1-c5e735a7ba78:image.png)
+![image](https://github.com/user-attachments/assets/f421fb7e-89bc-4ced-8955-b81feeebe212)
+
 
 Imagen en docker-hub
 
-![image.png](attachment:10f3233e-0c6d-4190-9d05-84209273fc95:image.png)
+![image](https://github.com/user-attachments/assets/dd244633-0a01-49cd-ab54-f03eeb9d96d3)
+
